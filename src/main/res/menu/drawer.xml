@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:title="아이">
+        <menu>
+            <item
+                android:icon="@drawable/face1"
+                android:title="@string/nav_sub_menu_item01"/>
+
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/a"
+            android:checked="true"
+            android:icon="@drawable/a"
+            android:title="성장일기" />
+        <item
+            android:id="@+id/b"
+            android:icon="@drawable/b"
+            android:title="성장기록" />
+        <item
+            android:id="@+id/c"
+            android:icon="@drawable/c"
+            android:title="발달과정" />
+        <item
+            android:id="@+id/d"
+            android:icon="@drawable/d"
+            android:title="일과표" />
+        <item
+            android:id="@+id/e"
+            android:icon="@drawable/e"
+            android:title="성장도표" />
+    </group>
+
+</menu>

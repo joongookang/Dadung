@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@null">
+    <android.support.v7.widget.Toolbar
+    android:id="@+id/toolBar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="#fff"
+    android:minHeight="?attr/actionBarSize"
+    android:layout_marginTop="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingRight="10dp">
+    <ImageButton
+        android:id="@+id/add2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:adjustViewBounds="true"
+        android:background="#fff"
+        android:scaleType="centerInside"
+        android:src="@drawable/back1" />
+</android.support.v7.widget.Toolbar>
+    <ImageView
+        android:id="@+id/seve"
+        android:onClick="onCli"
+        android:layout_marginTop="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/button"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="50dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_gravity="center"
+            android:textColor="#000"
+            android:text="이름(별명)"/>
+        <EditText
+            android:id="@+id/name123"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:hint="                      이름 또는 별명"
+            android:selectAllOnFocus="false"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="20dp" />
+
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fd7e6b"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:layout_marginLeft="25dp"
+            android:layout_gravity="center"
+            android:text="생년일월"/>
+        <TextView
+            android:id="@+id/daee"
+            android:layout_width="170dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginLeft="25dp"
+            android:textColor="#000"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/calen"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginLeft="20dp"
+            android:background="@null"
+            android:onClick="showDatePickerDialog"
+            android:text="선택"
+            android:textColor="#000" />
+
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fd7e6b"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:textColor="#000"
+            android:layout_gravity="center"
+            android:text="관계"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginRight="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginLeft="155dp"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/switch1"
+            android:layout_marginRight="10dp"
+            android:textColor="#fd7e6b"
+            android:textSize="20dp"
+            android:text="아빠"/>
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="right"
+            android:checked="true"
+            android:textOff="아빠"
+            android:textOn="엄마"
+            android:thumb="@drawable/switch_thumb_selector"
+            android:track="@drawable/switch_track_selector" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/switch1"
+                android:text="엄마"
+                android:textColor="#fd7e6b"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <View
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fd7e6b"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="?attr/actionBarSize">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addi"
+            android:background="#fd7e6b"
+            android:text="아이 등록"
+            android:textColor="#fff"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+

@@ -1,0 +1,87 @@
+package org.androidtown.dadung;
+
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+
+/**
+ * Created by INA on 2017-04-10.
+ */
+
+public class ListViewAdapter extends BaseAdapter{
+    //adapter에 추가된 데이터를 저장하기 위한 arrylist
+    private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>();
+
+    //listViewAdapter의 생성자
+    public ListViewAdapter(){
+
+    }
+
+    //Adapter에 사용되는 데이터의 개수 리턴 **
+    @Override
+    public int getCount(){
+        return listViewItemList.size();
+    }
+
+    // posiotion에 위치한 데이터를 화면에 출력하는데 사용될 view 리턴 **
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        final int pos=position;
+        final Context context = parent.getContext();
+
+        //"listview_item" layout을 inflate하여 covertView 참조
+        if (convertView == null){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.list_item_layout,parent,false);
+        }
+
+        //화면에 표시될 view(layout이 inflate)으로부터 위젯에 대한 참조 획득
+        ImageView iconImageView = (ImageView)convertView.findViewById(R.id.item_iconView);
+        TextView timeTextView = (TextView)convertView.findViewById(R.id.item_time);
+        TextView dateTextView = (TextView)convertView.findViewById(R.id.item_data);
+        ImageView nextImageView = (ImageView)convertView.findViewById(R.id.item_next);
+
+        //data set(ListViewItemList)에서 position에 위치한 데이터 참조
+        ListViewItem listViewItem = listViewItemList.get(position);
+
+        //아이템 내 각 위젯에 데이터 반영
+        iconImageView.setImageDrawable(listViewItem.getIcon());
+        timeTextView.setText(listViewItem.getTimeStr());
+        dateTextView.setText(listViewItem.getDataStr());
+        nextImageView.setImageDrawable(listViewItem.getNext());
+
+        return convertView;
+    }
+
+    //지정한 위치에 있는 데이터와 관계된 아이템의 id 리턴 **
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    // 지정한 위치에 있는 데이터 리턴
+    @Override
+    public Object getItem(int position) {
+        return listViewItemList.get(position);
+    }
+
+    public void addItem(Drawable icon, String time, String data,Drawable next){
+        ListViewItem item = new ListViewItem(icon,time,data,next);
+
+        item.setIcon(icon);
+        item.setTime(time);
+        item.setData(data);
+        item.setNext(next);
+
+        listViewItemList.add(0,item);
+    }
+}
