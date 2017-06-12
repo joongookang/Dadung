@@ -74,8 +74,6 @@ public class addat extends AppCompatActivity {
 //        mI.inflate(R.layout.addvi, mr, true);
         Intent intent = new Intent(getApplicationContext(), addvw.class);
         startActivityForResult(intent, REQUEST_CODE_MENU);
-
-
     }
 
 

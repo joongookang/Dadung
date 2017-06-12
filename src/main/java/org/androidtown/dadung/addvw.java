@@ -71,6 +71,7 @@ public class addvw extends AppCompatActivity {
     String joinname;
     String joindate;
     String filna;
+    String dffdf;
     String joinid = ((login) login.mContext).Setuserid();
 
     @Override
