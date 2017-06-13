@@ -24,6 +24,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".addat" />
         <activity android:name=".addvw" />
+        <activity android:name=".album" />
         <activity android:name=".graph"></activity>
     </application>
 
