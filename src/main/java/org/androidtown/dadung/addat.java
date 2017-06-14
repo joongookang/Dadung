@@ -71,7 +71,7 @@ import java.util.Date;
 public class addat extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     public static final int REQUEST_CODE_MENU = 101;
-    int i;
+    int flag= 0;
     View header;
     String joinid = ((login) login.mContext).Setuserid();
     String profile;
@@ -102,12 +102,16 @@ public class addat extends AppCompatActivity {
         });
         try {
             profile = new addat.CustomTask().execute(joinid).get();
-            urlimage = new addat.CustomTask1().execute(joinid).get();
+        } catch (Exception e) {
+        }
+        try {
+        urlimage = new addat.CustomTask12().execute(joinid).get();
         } catch (Exception e) {
         }
         profile = profile.replaceFirst(";","");
-        if(profile!=null) {
-            Picasso.with(getApplicationContext()).load(profile)
+        urlimage = urlimage.replaceFirst(";","");
+        if(urlimage.equals("")) {
+            Picasso.with(getApplicationContext()).load("sdasd")
                 .placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher)
                 .into((ImageView) findViewById(R.id.picasso));
@@ -115,6 +119,15 @@ public class addat extends AppCompatActivity {
             date.setText(new DateTime().toString(DateTimeFormat.forPattern("yyyy년 MM월 dd일")));
 
         }
+        else{
+            Picasso.with(getApplicationContext()).load(urlimage)
+                    .placeholder(R.mipmap.ic_launcher)
+                    .error(R.mipmap.ic_launcher)
+                    .into((ImageView) findViewById(R.id.picasso));
+            date = (TextView) findViewById(R.id.date);
+            date.setText(new DateTime().toString(DateTimeFormat.forPattern("yyyy년 MM월 dd일")));
+        }
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -197,6 +210,7 @@ public class addat extends AppCompatActivity {
                 sendMsg = "id=" + strings[0];
                 osw.write(sendMsg);
                 osw.flush();
+
                 if (conn.getResponseCode() == conn.HTTP_OK) {
                     InputStreamReader tmp = new InputStreamReader(conn.getInputStream(), "UTF-8");
                     BufferedReader reader = new BufferedReader(tmp);
@@ -219,7 +233,7 @@ public class addat extends AppCompatActivity {
         }
     }
 
-    class CustomTask1 extends AsyncTask<String, Void, String> {
+    class CustomTask12 extends AsyncTask<String, Void, String> {
         String sendMsg,receiveMsg;
 
         @Override

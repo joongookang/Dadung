@@ -21,6 +21,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -51,6 +52,17 @@ public class album extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.album_activity);
+        ImageButton imageButton = (ImageButton) findViewById(R.id.add23);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("name", "mike");
+                setResult(RESULT_OK, intent);
+                finish();
+            }
+
+
+        });
         getdiary = (EditText) findViewById(R.id.alubmstring);
     }
     class CustomTask extends AsyncTask<String, Void, String> {
@@ -64,7 +76,7 @@ public class album extends AppCompatActivity {
                 conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                 conn.setRequestMethod("POST");
                 OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
-                sendMsg = "id="+strings[0]+"&date="+strings[1]+"&url="+strings[2]+"&serach="+strings[3];
+                sendMsg = "id="+strings[0]+"&date="+strings[1]+"&url="+strings[2]+"&search="+strings[3];
                 osw.write(sendMsg);
                 osw.flush();
                 if(conn.getResponseCode() == conn.HTTP_OK) {
@@ -102,11 +114,11 @@ public class album extends AppCompatActivity {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 //이미지가 크면 불러 오지 못하므로 사이즈를 줄여 준다.
 
-                Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 400, 200, true);
+//                Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 10, 60, true);
 
 
                 ImageView imgView = (ImageView) findViewById(R.id.alubm);
-                imgView.setImageBitmap(getCircularBitmap(scaled));
+                imgView.setImageBitmap(bitmap);
 
             } else {
                 Toast.makeText(this, "취소 되었습니다.", Toast.LENGTH_LONG).show();
@@ -200,6 +212,10 @@ public class album extends AppCompatActivity {
             String result = new album.CustomTask().execute(joinid,date,filna,diary).get();
         } catch (Exception e) {
         }
+        Intent intent = new Intent();
+        intent.putExtra("name", "mike");
+        setResult(RESULT_OK, intent);
+        finish();
     }
     public static Bitmap getCircularBitmap(@NonNull Bitmap bitmap) {
         Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);

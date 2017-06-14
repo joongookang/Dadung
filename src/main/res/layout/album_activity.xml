@@ -13,7 +13,7 @@
         android:paddingBottom="10dp"
         android:paddingRight="10dp">
     <ImageButton
-        android:id="@+id/add2"
+        android:id="@+id/add23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
@@ -33,13 +33,14 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center_horizontal"
+            android:src="@drawable/button"
             android:onClick="imagestring" />
 
         <EditText
             android:id="@+id/alubmstring"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:gravity="center"
+            android:gravity="top"
             android:hint="내용을 입력하세요"
             android:textColorHint="#000" />
 
